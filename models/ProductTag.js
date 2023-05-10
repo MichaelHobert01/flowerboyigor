@@ -1,0 +1,32 @@
+const { Model, DataTypes } = require('sequelize');
+const sequelize = require('../config/connection')
+
+class ProductTag extends Model {}
+
+ProductTag.init(
+    {
+        id: {
+            type: DataTypes.INTERGER,
+            allowNull: false,
+            primaryKey: true,
+            autoIncrement: true,
+        },
+        name: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
+        address: {
+            type: DataTypes.STRING,
+            allowNull: false, 
+        },
+    },
+    {
+        sequelize,
+        timestamps: false,
+        freezeTableName: true, 
+        underscored: true,
+        modelName: 'producttag',
+    }
+);
+
+module.exports = ProductTag;
